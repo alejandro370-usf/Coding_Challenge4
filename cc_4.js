@@ -37,3 +37,23 @@ function getExtraDiscount(customerType) {
     return 0;
   }
 }
+// Checkout for 3 customers
+const customerTypes = ["regular", "student", "senior"];
+
+for (let i = 0; i < 3; i++) {
+  let total = 0;
+  const customer = `Customer ${i + 1}`;
+  const customerType = customerTypes[i];
+  const extraDiscount = getExtraDiscount(customerType);
+
+  for (const product of products) {
+    const quantity = 1; // Customer buys 1 of each
+    if (product.inventory >= quantity) {
+      const itemTotal = product.price * quantity;
+      total += itemTotal;
+      product.inventory -= quantity; // Reduce inventory
+    }
+  }
+  total *= 1 - extraDiscount; // Apply extra discount
+  console.log(`${customer} (${customerType}) total: $${total.toFixed(2)}`);
+}
