@@ -27,3 +27,13 @@ for (const product of products) {
   // Log new price after category discount
   console.log(`Discounted price for ${product.name}: $${product.price.toFixed(2)}`);
 }
+//  Customer type extra discount 
+function getExtraDiscount(customerType) {
+  if (customerType === "student") {
+    return 0.05;
+  } else if (customerType === "senior") {
+    return 0.07;
+  } else {
+    return 0;
+  }
+}
