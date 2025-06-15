@@ -57,3 +57,17 @@ for (let i = 0; i < 3; i++) {
   total *= 1 - extraDiscount; // Apply extra discount
   console.log(`${customer} (${customerType}) total: $${total.toFixed(2)}`);
 }
+// for...in step 6
+const sampleProduct = products[0];
+console.log("\nSample product details using for...in:");
+for (const key in sampleProduct) {
+  console.log(`${key}: ${sampleProduct[key]}`);
+}
+
+//  Object.entries Step 7 
+console.log("\nAll products after inventory update:");
+for (const product of products) {
+  const entries = Object.entries(product);
+  const productInfo = entries.map(([key, value]) => `${key}: ${value}`).join(", ");
+  console.log(productInfo);
+}
